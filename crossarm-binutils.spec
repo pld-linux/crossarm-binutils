@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_with	eabi		# build with Embedded ABI support
+#
 Summary:	Cross ARM GNU binary utility development utilities - binutils
 Summary(es):	Utilitarios para desarrollo de binarios de la GNU - ARM binutils
 Summary(fr):	Utilitaires de développement binaire de GNU - ARM binutils
@@ -6,7 +10,7 @@ Summary(pt_BR):	Utilitários para desenvolvimento de binários da GNU - ARM binuti
 Summary(tr):	GNU geliþtirme araçlarý - ARM binutils
 Name:		crossarm-binutils
 Version:	2.15.94.0.2
-Release:	1
+Release:	1%{?with_eabi:eabi}
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
@@ -17,10 +21,11 @@ BuildRequires:	bash
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	gettext-devel
+%{?with_eabi:Provides:	crossarm-binutils(eabi)}
 ExcludeArch:	arm
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		target		arm-pld-linux
+%define		target		arm-linux%{?with_eabi:-eabi}
 %define		arch		%{_prefix}/%{target}
 
 %description

@@ -23,7 +23,6 @@ BuildRequires:	automake
 BuildRequires:	bash
 BuildRequires:	bison
 BuildRequires:	flex
-BuildRequires:	gettext-devel
 %{?with_eabi:Provides:	crossarm-binutils(eabi)}
 ExcludeArch:	arm
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -71,11 +70,11 @@ LDFLAGS="%{rpmldflags}" \
 CONFIG_SHELL="/bin/bash" \
 ./configure \
 	--disable-shared \
+	--disable-nls \
 	--prefix=%{_prefix} \
 	--libdir=%{_libdir} \
 	--mandir=%{_mandir} \
 	--infodir=%{_infodir} \
-	--enable-64-bit-bfd \
 	--target=%{target}
 
 %{__make} all \

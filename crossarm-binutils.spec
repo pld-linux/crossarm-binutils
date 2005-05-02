@@ -9,15 +9,12 @@ Summary(pl):	Skro¶ne narzêdzia programistyczne GNU dla ARM - binutils
 Summary(pt_BR):	Utilitários para desenvolvimento de binários da GNU - ARM binutils
 Summary(tr):	GNU geliþtirme araçlarý - ARM binutils
 Name:		crossarm-binutils
-Version:	2.16.90.0.1
+Version:	2.16.90.0.2
 Release:	1%{?with_eabi:eabi}
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
-# Source0-md5:	b231856d84a6181572b0b3371cfc6843
-Patch0:		binutils-needed.patch
-Patch1:		binutils-pr815.patch
-Patch2:		binutils-pr872.patch
+# Source0-md5:	4c03bb2c97fb06ecd5e8e8dbb44a1878
 URL:		http://sources.redhat.com/binutils/
 BuildRequires:	automake
 BuildRequires:	bash
@@ -29,7 +26,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		target		arm-linux%{?with_eabi:-eabi}
 %define		arch		%{_prefix}/%{target}
-%define		specflags	-Wno-error
 
 %description
 Binutils is a collection of binary utilities, including:
@@ -57,9 +53,6 @@ Ten pakiet zawiera wersjê skro¶n± generuj±c± kod dla ARM.
 
 %prep
 %setup -q -n binutils-%{version}
-%patch0 -p0
-%patch1 -p0
-%patch2 -p0
 
 %build
 cp -f /usr/share/automake/config.sub .

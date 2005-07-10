@@ -1,6 +1,6 @@
 #
 # Conditional build:
-%bcond_with	eabi		# build with Embedded ABI support
+%bcond_without	eabi	# build without Embedded ABI support
 #
 Summary:	Cross ARM GNU binary utility development utilities - binutils
 Summary(es):	Utilitarios para desarrollo de binarios de la GNU - ARM binutils
@@ -10,11 +10,13 @@ Summary(pt_BR):	Utilitários para desenvolvimento de binários da GNU - ARM binuti
 Summary(tr):	GNU geliþtirme araçlarý - ARM binutils
 Name:		crossarm-binutils
 Version:	2.16.91.0.1
-Release:	1%{?with_eabi:eabi}
+Release:	2%{?with_eabi:eabi}
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
 # Source0-md5:	ab7fd509b5eee531982909ae05db715a
+Source1:	crossarm-lpc2104.ld
+Source2:	crossarm-lpc2106.ld
 URL:		http://sources.redhat.com/binutils/
 BuildRequires:	automake
 BuildRequires:	bash
@@ -64,6 +66,7 @@ CONFIG_SHELL="/bin/bash" \
 ./configure \
 	--disable-shared \
 	--disable-nls \
+	--disable-werror \
 	--prefix=%{_prefix} \
 	--libdir=%{_libdir} \
 	--mandir=%{_mandir} \
@@ -83,6 +86,9 @@ install -d $RPM_BUILD_ROOT%{_prefix}
 	mandir=$RPM_BUILD_ROOT%{_mandir} \
 	infodir=$RPM_BUILD_ROOT%{_infodir} \
 	libdir=$RPM_BUILD_ROOT%{_libdir}
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{arch}/lib/ldscripts/lpc2104.ld
+install %{SOURCE2} $RPM_BUILD_ROOT%{arch}/lib/ldscripts/lpc2106.ld
 
 # remove these man pages unless we cross-build for win*/netware platforms.
 # however, this should be done in Makefiles.

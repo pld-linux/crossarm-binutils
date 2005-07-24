@@ -9,12 +9,12 @@ Summary(pl):	Skro¶ne narzêdzia programistyczne GNU dla ARM - binutils
 Summary(pt_BR):	Utilitários para desenvolvimento de binários da GNU - ARM binutils
 Summary(tr):	GNU geliþtirme araçlarý - ARM binutils
 Name:		crossarm-binutils
-Version:	2.16.91.0.1
-Release:	2%{?with_eabi:eabi}
+Version:	2.16.91.0.2
+Release:	1%{?with_eabi:eabi}
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
-# Source0-md5:	ab7fd509b5eee531982909ae05db715a
+# Source0-md5:	bf01e3151b4cd74f2d52871fbc297215
 Source1:	crossarm-lpc2104.ld
 Source2:	crossarm-lpc2106.ld
 URL:		http://sources.redhat.com/binutils/

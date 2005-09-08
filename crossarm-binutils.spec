@@ -10,7 +10,7 @@ Summary(pt_BR):	Utilitários para desenvolvimento de binários da GNU - ARM binuti
 Summary(tr):	GNU geliþtirme araçlarý - ARM binutils
 Name:		crossarm-binutils
 Version:	2.16.91.0.3
-Release:	1%{?with_eabi:eabi}
+Release:	2%{?with_eabi:eabi}
 License:	GPL
 Group:		Development/Tools
 Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
@@ -60,13 +60,12 @@ Ten pakiet zawiera wersjê skro¶n± generuj±c± kod dla ARM.
 cp -f /usr/share/automake/config.sub .
 
 # ldscripts won't be generated properly if SHELL is not bash...
-CFLAGS="%{rpmcflags}" \
+CFLAGS="%{rpmcflags} -fno-strict-aliasing" \
 LDFLAGS="%{rpmldflags}" \
 CONFIG_SHELL="/bin/bash" \
 ./configure \
 	--disable-shared \
 	--disable-nls \
-	--disable-werror \
 	--prefix=%{_prefix} \
 	--libdir=%{_libdir} \
 	--mandir=%{_mandir} \

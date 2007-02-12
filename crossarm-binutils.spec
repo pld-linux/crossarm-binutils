@@ -3,11 +3,11 @@
 %bcond_without	gnueabi	# build without GNU Embedded ABI support
 #
 Summary:	Cross ARM GNU binary utility development utilities - binutils
-Summary(es.UTF-8):   Utilitarios para desarrollo de binarios de la GNU - ARM binutils
-Summary(fr.UTF-8):   Utilitaires de développement binaire de GNU - ARM binutils
-Summary(pl.UTF-8):   Skrośne narzędzia programistyczne GNU dla ARM - binutils
-Summary(pt_BR.UTF-8):   Utilitários para desenvolvimento de binários da GNU - ARM binutils
-Summary(tr.UTF-8):   GNU geliştirme araçları - ARM binutils
+Summary(es.UTF-8):	Utilitarios para desarrollo de binarios de la GNU - ARM binutils
+Summary(fr.UTF-8):	Utilitaires de développement binaire de GNU - ARM binutils
+Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla ARM - binutils
+Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - ARM binutils
+Summary(tr.UTF-8):	GNU geliştirme araçları - ARM binutils
 Name:		crossarm-binutils
 Version:	2.17.50.0.5
 Release:	1%{?with_gnueabi:gnueabi}

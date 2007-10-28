@@ -70,7 +70,8 @@ CONFIG_SHELL="/bin/bash" \
 	--libdir=%{_libdir} \
 	--mandir=%{_mandir} \
 	--infodir=%{_infodir} \
-	--target=%{target}
+	--target=%{target} \
+	--with-sysroot=%{_libdir}/%{target}
 
 %{__make} all \
 	tooldir=%{_prefix} \

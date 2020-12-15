@@ -9,12 +9,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla ARM - binutils
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - ARM binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - ARM binutils
 Name:		crossarm-binutils
-Version:	2.18.50.0.2
+Version:	2.35.1
 Release:	1%{?with_gnueabi:gnueabi}
 License:	GPL
 Group:		Development/Tools
-Source0:	ftp://ftp.kernel.org/pub/linux/devel/binutils/binutils-%{version}.tar.bz2
-# Source0-md5:	ba4647b164a4700ca62e6eeb76cae4fc
+Source0:	https://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.lz
+# Source0-md5:	701103b50966364eadff838f5a5df928
 Source1:	crossarm-lpc2104.ld
 Source2:	crossarm-lpc2106.ld
 URL:		http://sources.redhat.com/binutils/
@@ -57,7 +57,6 @@ Ten pakiet zawiera wersję skrośną generującą kod dla ARM.
 %setup -q -n binutils-%{version}
 
 %build
-cp -f /usr/share/automake/config.sub .
 
 # ldscripts won't be generated properly if SHELL is not bash...
 CFLAGS="%{rpmcflags} -fno-strict-aliasing" \

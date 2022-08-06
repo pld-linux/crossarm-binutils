@@ -9,12 +9,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla ARM - binutils
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - ARM binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - ARM binutils
 Name:		crossarm-binutils
-Version:	2.38
+Version:	2.39
 Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	https://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.lz
-# Source0-md5:	a54dd3cba0f276a52063b7de151e6334
+# Source0-md5:	061a1460a09cc71e51886c008be55d44
 Source1:	crossarm-lpc2104.ld
 Source2:	crossarm-lpc2106.ld
 URL:		http://sources.redhat.com/binutils/
@@ -70,7 +70,9 @@ CONFIG_SHELL="/bin/bash" \
 	--mandir=%{_mandir} \
 	--infodir=%{_infodir} \
 	--target=%{target} \
-	--with-sysroot=%{_libdir}/%{target}
+	--with-sysroot=%{_libdir}/%{target} \
+	--disable-jansson \
+	--disable-msgpack
 
 %{__make} all \
 	tooldir=%{_prefix} \

@@ -10,7 +10,7 @@ Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - AR
 Summary(tr.UTF-8):	GNU geliştirme araçları - ARM binutils
 Name:		crossarm-binutils
 Version:	2.39
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Tools
 Source0:	https://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.lz

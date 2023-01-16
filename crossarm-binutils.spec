@@ -9,12 +9,12 @@ Summary(pl.UTF-8):	Skrośne narzędzia programistyczne GNU dla ARM - binutils
 Summary(pt_BR.UTF-8):	Utilitários para desenvolvimento de binários da GNU - ARM binutils
 Summary(tr.UTF-8):	GNU geliştirme araçları - ARM binutils
 Name:		crossarm-binutils
-Version:	2.39
-Release:	2
+Version:	2.40
+Release:	1
 License:	GPL
 Group:		Development/Tools
 Source0:	https://ftp.gnu.org/gnu/binutils/binutils-%{version}.tar.lz
-# Source0-md5:	061a1460a09cc71e51886c008be55d44
+# Source0-md5:	be3411283c27eb0984104a2fda12e102
 Source1:	crossarm-lpc2104.ld
 Source2:	crossarm-lpc2106.ld
 URL:		http://sources.redhat.com/binutils/
@@ -22,6 +22,7 @@ BuildRequires:	automake
 BuildRequires:	bash
 BuildRequires:	bison
 BuildRequires:	flex
+BuildRequires:	zlib-devel
 %{?with_gnueabi:Provides:	crossarm-binutils(gnueabi)}
 ExcludeArch:	arm
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -64,6 +65,7 @@ LDFLAGS="%{rpmldflags}" \
 CONFIG_SHELL="/bin/bash" \
 ./configure \
 	--disable-shared \
+	--disable-silent-rules \
 	--disable-nls \
 	--prefix=%{_prefix} \
 	--libdir=%{_libdir} \
@@ -71,8 +73,11 @@ CONFIG_SHELL="/bin/bash" \
 	--infodir=%{_infodir} \
 	--target=%{target} \
 	--with-sysroot=%{_libdir}/%{target} \
-	--disable-jansson \
-	--disable-msgpack
+	--with-debuginfod=no \
+	--with-msgpack=no \
+	--with-system-zlib \
+	--with-zstd=no \
+	--disable-jansson
 
 %{__make} all \
 	tooldir=%{_prefix} \

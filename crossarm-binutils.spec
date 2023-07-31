@@ -22,6 +22,8 @@ BuildRequires:	automake
 BuildRequires:	bash
 BuildRequires:	bison
 BuildRequires:	flex
+BuildRequires:	lzip
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	zlib-devel
 %{?with_gnueabi:Provides:	crossarm-binutils(gnueabi)}
 ExcludeArch:	arm
